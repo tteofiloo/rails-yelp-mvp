@@ -1,0 +1,9 @@
+<div class="container mt-3">
+  <%= simple_form_for @restaurant do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number, html5: true %>
+    <%= f.input :category, collection: Restaurant::CATEGORIES.sort, include_blank: false %>
+    <%= f.submit 'Submit', class: 'btn btn-primary mt-2' %>
+  <% end %>
+</div>

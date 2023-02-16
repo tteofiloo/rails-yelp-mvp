@@ -1,0 +1,16 @@
+<div class="container mt-3"></div>
+<h2><%= @restaurant.name %></h2>
+<p><%= @restaurant.category %></p>
+<p><%= @restaurant.address %></p>
+<p><%= @restaurant.phone_number %></p>
+<h2>Reviews</h2>
+<% if @restaurant.reviews.any? %>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %></li>
+  <% end %>
+   <% else %>
+    <li>No reviews yet.</li>
+  <% end %>
+  <%= render './reviews/new' %>
+<%= link_to "Leave a review", new_restaurant_review_path(@restaurant) %>
+<%= link_to "See all restaurants", restaurants_path %>
